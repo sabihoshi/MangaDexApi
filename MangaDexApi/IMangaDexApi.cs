@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using MangaDexApi.Models;
+using MangaDexApi.Manga;
 using Refit;
 
 namespace MangaDexApi

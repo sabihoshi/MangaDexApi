@@ -1,4 +1,4 @@
-﻿namespace MangaDexApi.Models
+﻿namespace MangaDexApi.Manga
 {
     public class TitleChapter
     {

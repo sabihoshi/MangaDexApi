@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using Newtonsoft.Json;
 
 namespace MangaDexApi.Serialization
@@ -11,8 +10,7 @@ namespace MangaDexApi.Serialization
     {
         public static Dictionary<string, Source> SourcesJson =
             JsonConvert.DeserializeObject<Dictionary<string, Source>>(
-                File.ReadAllText("./Serialization/sources.json"),
-                new MangaDexSerializerSettings())!;
+                File.ReadAllText("./Serialization/sources.json"))!;
 
         public override void WriteJson(JsonWriter writer, IEnumerable<Source> value, JsonSerializer serializer)
         {
@@ -30,7 +28,7 @@ namespace MangaDexApi.Serialization
 
                 if (source.BaseUrl != null)
                 {
-                    writer.WritePropertyName("base_url");
+                    writer.WritePropertyName("baseUrl");
                     writer.WriteValue(source.BaseUrl);
                 }
 
@@ -41,7 +39,8 @@ namespace MangaDexApi.Serialization
             writer.WriteEndArray();
         }
 
-        public override IEnumerable<Source> ReadJson(JsonReader reader, Type objectType, IEnumerable<Source> existingValue, bool hasExistingValue,
+        public override IEnumerable<Source> ReadJson(JsonReader reader, Type objectType,
+            IEnumerable<Source> existingValue, bool hasExistingValue,
             JsonSerializer serializer)
         {
             var links = new Dictionary<string, string>();

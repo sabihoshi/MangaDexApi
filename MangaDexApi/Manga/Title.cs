@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 
-namespace MangaDexApi.Models
+namespace MangaDexApi.Manga
 {
     public class Title
     {
-        public Manga Manga { get; set; }
+        public Manga Data { get; set; }
 
         public Dictionary<string, TitleChapter> Chapter { get; set; }
 

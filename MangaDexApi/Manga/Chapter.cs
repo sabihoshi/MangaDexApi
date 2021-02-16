@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace MangaDexApi.Models
+namespace MangaDexApi.Manga
 {
     public class Chapter
     {
@@ -13,8 +13,7 @@ namespace MangaDexApi.Models
 
         public int? Volume { get; set; }
 
-        [JsonProperty("chapter")]
-        public string ChapterNumber { get; set; }
+        [JsonProperty("chapter")] public string ChapterNumber { get; set; }
 
         public string Title { get; set; }
 
