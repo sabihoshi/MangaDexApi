@@ -2,12 +2,17 @@
 
 namespace MangaDexApi.Serialization
 {
-    public interface IResponse
+    public class Response
     {
         public HttpStatusCode Code { get; set; }
 
         public string Status { get; set; }
 
-        public string? Comment { get; set; }
+        public string? Message { get; set; }
+    }
+
+    public class Response<T> : Response
+    {
+        public T Data { get; set; }
     }
 }

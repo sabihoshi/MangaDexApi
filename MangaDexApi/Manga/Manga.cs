@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net;
 using MangaDexApi.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
 namespace MangaDexApi.Manga
 {
-    public class Manga : IResponse
+    public class Manga
     {
         public ulong Id { get; set; }
 
@@ -48,11 +47,5 @@ namespace MangaDexApi.Manga
 
         [JsonConverter(typeof(SourceConverter))]
         public IEnumerable<Source> Links { get; set; }
-
-        public HttpStatusCode Code { get; set; }
-
-        public string Status { get; set; }
-
-        public string? Comment { get; set; }
     }
 }

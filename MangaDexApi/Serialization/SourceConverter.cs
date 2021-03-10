@@ -12,7 +12,7 @@ namespace MangaDexApi.Serialization
             JsonConvert.DeserializeObject<Dictionary<string, Source>>(
                 File.ReadAllText("./Serialization/sources.json"))!;
 
-        public override void WriteJson(JsonWriter writer, IEnumerable<Source> value, JsonSerializer serializer)
+        public override void WriteJson(JsonWriter writer, IEnumerable<Source>? value, JsonSerializer serializer)
         {
             writer.WriteStartArray();
 
@@ -40,9 +40,12 @@ namespace MangaDexApi.Serialization
         }
 
         public override IEnumerable<Source> ReadJson(JsonReader reader, Type objectType,
-            IEnumerable<Source> existingValue, bool hasExistingValue,
+            IEnumerable<Source>? existingValue, bool hasExistingValue,
             JsonSerializer serializer)
         {
+            if (!hasExistingValue)
+                return Enumerable.Empty<Source>();
+
             var links = new Dictionary<string, string>();
             serializer.Populate(reader, links);
             return links

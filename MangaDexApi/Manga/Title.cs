@@ -1,15 +1,12 @@
 ﻿using System.Collections.Generic;
+using MangaDexApi.Serialization;
 
 namespace MangaDexApi.Manga
 {
-    public class Title
+    public class Title : Response<Manga>
     {
-        public Manga Data { get; set; }
-
         public Dictionary<string, TitleChapter> Chapter { get; set; }
 
-        public Dictionary<string, Group> Group { get; set; }
-
-        public string Status { get; set; }
+        public Dictionary<string, GroupData> Group { get; set; }
     }
 }

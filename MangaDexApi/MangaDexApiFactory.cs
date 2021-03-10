@@ -1,4 +1,5 @@
-﻿using Refit;
+﻿using Newtonsoft.Json;
+using Refit;
 
 namespace MangaDexApi
 {
@@ -6,7 +7,11 @@ namespace MangaDexApi
     {
         public static IMangaDexApi Create()
         {
-            return RestService.For<IMangaDexApi>("https://mangadex.org/api/v2");
+            return RestService.For<IMangaDexApi>(
+                "https://mangadex.org/api/v2",
+                new RefitSettings(
+                    new NewtonsoftJsonContentSerializer(
+                        new JsonSerializerSettings())));
         }
     }
 }
